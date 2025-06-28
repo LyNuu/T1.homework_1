@@ -4,6 +4,6 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 class Main {
     public static void main(String[] args) {
-
+        User user = new User();
         }
 }
