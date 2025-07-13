@@ -1,9 +1,20 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-class Main {
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.scheduling.annotation.EnableScheduling;
+
+@SpringBootApplication(exclude = {
+        DataSourceAutoConfiguration.class,
+        HibernateJpaAutoConfiguration.class,
+        DataSourceTransactionManagerAutoConfiguration.class
+})
+@EnableScheduling
+public class Main {
     public static void main(String[] args) {
-        User user = new User();
-        }
+        SpringApplication.run(Main.class, args);
+    }
 }
