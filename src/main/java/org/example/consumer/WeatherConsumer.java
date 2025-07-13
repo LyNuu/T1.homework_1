@@ -12,13 +12,16 @@ import org.springframework.stereotype.Component;
 @Component
 @EnableKafka
 public class WeatherConsumer {
+    @Autowired
+    private WeatherStatistics weatherStatistics;
 
     @Autowired
     private ObjectMapper objectMapper;
 
     @KafkaListener(topics = "weather-topic")
     public void msgListener(String msg) throws JsonProcessingException {
-        WeatherStatistics.temperatures.add(objectMapper.readValue(msg, Event.class));
+        Event event = objectMapper.readValue(msg, Event.class);
+        weatherStatistics.addEvent(event);
         System.out.println(msg);
     }
 }

@@ -5,10 +5,11 @@ import java.util.Random;
 public enum Weather {
     SUNNY, CLOUDY, RAIN;
 
+    private static final Weather[] VALUES = values();
     private static final Random RANDOM = new Random();
+    private static final int SIZE = VALUES.length;
 
     public static Weather randomWeather() {
-        Weather[] values = values();
-        return values[RANDOM.nextInt(values.length)];
+        return VALUES[RANDOM.nextInt(SIZE)];
     }
 }

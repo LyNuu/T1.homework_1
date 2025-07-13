@@ -10,7 +10,11 @@ import java.util.Optional;
 
 @Component
 public class WeatherStatistics {
-    public static ArrayList<Event> temperatures = new ArrayList<>();
+    private static ArrayList<Event> temperatures = new ArrayList<>();
+
+    public void addEvent(Event event) {
+        temperatures.add(event);
+    }
 
     @Scheduled(initialDelay = 10000, fixedRate = 10000)
     public void getHeightTemperature() {

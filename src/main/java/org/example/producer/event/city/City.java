@@ -5,10 +5,11 @@ import java.util.Random;
 public enum City {
     Магадан, Чукотка, Питер, Тюмень;
 
+    private static final City[] VALUES = values();
     private static final Random RANDOM = new Random();
+    private static final int SIZE = VALUES.length;
 
     public static City randomCity() {
-        City[] values = values();
-        return values[RANDOM.nextInt(values.length)];
+        return VALUES[RANDOM.nextInt(SIZE)];
     }
 }
